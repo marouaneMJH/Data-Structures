@@ -1,8 +1,7 @@
 #ifndef SINGLE_LINKED_LIST_H
 #define SINGLE_LINKED_LIST_H
 
-typedef struct node
-{
+typedef struct node{
     int data;
     struct node *next;
 
@@ -22,12 +21,14 @@ typedef struct  nodeHeader{
 */
 nodeHeader *createNodeHeader();
 
+nodeHeader *fillLikedList(int size);
+
 /**
  *@brief creat a node element
  *@param int data 
  *@return pointer of node 
 */
-node *createNode(int data);
+node* createNode(int data);
 
 /**
  * @brief add element to existed linked list 
@@ -46,7 +47,12 @@ int removeLinkedList(nodeHeader* nodeHeader);
 
 int removeHead(nodeHeader* nodeHeader);
 
-int removeLast(nodeHeader* nodeHeader);
+
+void printList(nodeHeader* nodeHeader);
+
+
+
+// int removeLast(nodeHeader* nodeHeader);
 
 // int removeByPosition(nodeHeader* nodeHeader, int postion);
 

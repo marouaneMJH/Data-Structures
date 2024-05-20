@@ -28,7 +28,7 @@ nodeHeader* createNodeHeader(){
 
 int addInLast(nodeHeader* nodeHeader, int data){
 
-    node* newElement=createNode(data);
+    node* newElement = createNode(data);
 
     if( newElement == NULL)
         return 0;
@@ -76,7 +76,6 @@ int addInFirst(nodeHeader* nodeHeader, int data){
 
 int addByPosition(nodeHeader* nodeHeader, int data, int postion){
 
-
     node* newElement=createNode(data);
     node* curent=nodeHeader->head;
 
@@ -89,7 +88,7 @@ int addByPosition(nodeHeader* nodeHeader, int data, int postion){
     if(postion == nodeHeader->size)
         return addInLast(nodeHeader,data);
     
-    for(int i=0;i<postion-1;i++)
+    for(int i=1;i<postion-1;i++)
         curent = curent->next;
 
     newElement->next=curent->next;
@@ -164,3 +163,37 @@ int removeLast(nodeHeader* nodeHeader){
         curent=curent->next;
     }
 }
+
+
+nodeHeader *fillLikedList(int size){
+    nodeHeader* returnedList;
+    returnedList=createNodeHeader();
+
+    
+
+    for(int i=0;i<size;i++){    
+        int temp=rand()%100;
+
+        addInFirst(returnedList, temp);
+    }
+
+    return returnedList;
+}
+
+
+
+void printList(nodeHeader* nodeHeader){
+    
+    node* curent=nodeHeader->head;
+
+
+    while (curent!=NULL){
+        printf(" %d -->",curent->data);
+        curent=curent->next;
+    }
+
+    printf(" NULL\n");
+}
+
+
+

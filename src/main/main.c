@@ -1,41 +1,40 @@
-#include <stdio.h>
-#include "./../../include/common/DataStructur.h"
+#include "./../LinkedList/SingleLinkedList.c"
 
 int main() {
-    // Create a new linked list header
-    nodeHeader* list = createNodeHeader();
 
-    // Add elements to the linked list
+
+    nodeHeader* list = createNodeHeader();
+    
+    printf("Adding elements to the end of the list:\n");
     addInLast(list, 10);
     addInLast(list, 20);
     addInLast(list, 30);
+    printList(list);  // Expected output: 10 --> 20 --> 30 --> NULL
+
+    printf("\nAdding elements to the beginning of the list:\n");
     addInFirst(list, 5);
-    addByPosition(list, 25, 3);
+    printList(list);  // Expected output: 5 --> 10 --> 20 --> 30 --> NULL
 
-    // Display the elements of the linked list
-    printf("Linked list elements: ");
-    node* current = list->head;
-    while (current != NULL) {
-        printf("%d ", current->data);
-        current = current->next;
-    }
-    printf("\n");
+    printf("\nAdding elements by position:\n");
+    addByPosition(list, 15, 3);
+    printList(list);  // Expected output: 5 --> 10 --> 15 --> 20 --> 30 --> NULL
 
-    // Remove elements from the linked list
+    printf("\nRemoving the head of the list:\n");
     removeHead(list);
+    printList(list);  // Expected output: 10 --> 15 --> 20 --> 30 --> NULL
+
+    printf("\nRemoving the last element of the list:\n");
     removeLast(list);
+    printList(list);  // Expected output: 10 --> 15 --> 20 --> NULL
 
-    // Display the elements of the linked list after removal
-    printf("Linked list elements after removal: ");
-    current = list->head;
-    while (current != NULL) {
-        printf("%d ", current->data);
-        current = current->next;
-    }
-    printf("\n");
+    printf("\nFilling a new list with random elements:\n");
+    nodeHeader* filledList = fillLikedList(5);
+    printList(filledList);  // Expected output: List with 5 random elements
 
-    // Free the memory allocated for the linked list
-    removeLinkedList(list);
-
+    printf("\nRemoving all elements from the filled list:\n");
+    removeLinkedList(filledList);
+    
     return 0;
 }
+
+
