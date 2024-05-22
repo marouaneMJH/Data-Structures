@@ -3,6 +3,9 @@
 
 
 #include "./SingleLinkedList.h"
+#include "./DoublyLinkedList.h"
+
+
 
 
 
