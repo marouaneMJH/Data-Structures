@@ -83,12 +83,14 @@ bool addInLastDoubly(nodeDoublyList* list, int data){
 
 //deleting functions
 
-bool deleteFirstDoubly(nodeDoublyList* list){
+int deleteHeadDoubly(nodeDoublyList* list){
 
-    if(list->size==0){
-
-        return false;
+    if(doublyIsEmpty(list)){
+        printf("\nThe doubly List is empty");
     }
+
+    nodeDoubly* curent;
+
 }
 
 //Search and Access
@@ -174,7 +176,30 @@ void printDoublyLinkedList(nodeDoublyList* list){
 
     printf("NULL\n");
     
-    
 }
+
+
+nodeDoublyList* reverseDoublyLinkedList(nodeDoublyList* list){
+    
+    if(list==NULL)
+        return NULL;
+    
+    nodeDoubly* curent=list->last;
+
+    nodeDoublyList *returnedList = createDoublyLinkedList();    
+
+    while(curent != NULL){
+
+        if(addInLastDoubly(returnedList,curent->data)==false){
+            printf("error in adding.");
+            return NULL;
+        }
+
+        curent=curent->prev;
+    }
+
+    return returnedList;
+}
+
 
 

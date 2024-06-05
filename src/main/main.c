@@ -8,7 +8,7 @@ int main() {
     D_Node = fillDoublyLinkedList(1000);
     printDoublyLinkedList(D_Node);
 
-    
+
     return 0;
 }
 
